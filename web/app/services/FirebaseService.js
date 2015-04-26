@@ -11,8 +11,8 @@ ElokuvaApp.service('FirebaseService', function ($firebase) {
         movies.$add(data);
     }
 
-    this.removeMovie = function(key) {
-        movies.$remove(key);
+    this.removeMovie = function(index) {
+        movies.$remove(movies[index]);
     }
     
     this.getMovie = function (key, done) {

@@ -8,7 +8,29 @@ describe('Add movie', function () {
         module('ElokuvaApp');
 
         FirebaseServiceMock = (function () {
-            var movies = [];
+            var movies = [
+                {
+                    "description": "Trés belle histoire.",
+                    "director": "Aki Kaurismäki",
+                    "location": "France",
+                    "name": "Le Havre",
+                    "year": "2009"
+                },
+                {
+                    "description": "epic",
+                    "director": "en muista",
+                    "location": "New Zealand",
+                    "name": "Taru Sormusten Herrasta",
+                    "year": "2003"
+                },
+                {
+                    "description": "Action",
+                    "director": "Someone",
+                    "location": "UK",
+                    "name": "James Bond",
+                    "year": "2998"
+                }
+            ]
             return {
                 getMovies: function () {
                     return movies;
@@ -50,10 +72,9 @@ describe('Add movie', function () {
             "year": "2005",
             "description": "Action film."
         };
-        scope.addMovie(movie);
+        scope.save(movie);
         expect(FirebaseServiceMock.addMovie).toHaveBeenCalled();
     });
-
     /*	
      * Testaa, ettei käyttäjä pysty lisäämään elokuvaa väärillä tiedoilla.
      * Muista myös tarkistaa, että Firebasen kanssa keskustelevasta palvelusta
@@ -67,8 +88,7 @@ describe('Add movie', function () {
             "name": "King kong",
             "year": "2005"
         };
-        scope.addMovie(movie);
-        debugger;
+        scope.save(movie);
         expect(FirebaseServiceMock.addMovie).not.toHaveBeenCalled();
     });
 });

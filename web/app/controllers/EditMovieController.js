@@ -1,4 +1,5 @@
 angular.module('ElokuvaApp').controller('EditMovieController', function (FirebaseService, $routeParams, $scope, $location) {
+    
     FirebaseService.getMovie($routeParams.id, function (movie) {
         $scope.movie = movie;
     });
@@ -12,7 +13,8 @@ angular.module('ElokuvaApp').controller('EditMovieController', function (Firebas
 
     $scope.save = function (movie) {
         var fieldsInMovieJson = 7;
-        if (Object.keys(movie).length == fieldsInMovieJson) {
+        //debugger;
+        if (Object.keys(movie).length === fieldsInMovieJson) {
             FirebaseService.updateMovie(movie);
             $scope.returnToShow();
         }
