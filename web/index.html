@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Elokuvakirjasto</title>
   </head>
-  <body>
-    <h1>Hello, world! Jeejee</h1>
+  <body ng-app="ElokuvaApp">
+    <h1>Elokuvakirjasto</h1>
+    
+    <elokuva-nav-bar></elokuva-nav-bar>
+    
+    <div ng-view ></div>
 
     <!-- Hyödyllisiä kirjastoja -->
     <script src="bower_components/angular/angular.min.js"></script>
@@ -17,5 +21,18 @@
 
     <!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
     <script src="app/app.js"></script>    
+    <script src="app/routes.js"></script>  
+    
+    <!-- Services -->
+    <script src="app/services/FirebaseService.js"></script>  
+    
+    <!-- Controllers -->
+    <script src="app/controllers/AddMovieController.js"></script>  
+    <script src="app/controllers/ListMoviesController.js"></script>
+    <script src="app/controllers/ShowMovieController.js"></script>
+    
+    <!-- Directives -->
+    <script src="app/directives/elokuvaNavBar.js"></script>
+    
   </body>
 </html>

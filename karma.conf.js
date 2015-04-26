@@ -10,6 +10,7 @@ module.exports = function(config){
       'web/bower_components/firebase/firebase.js',
       'web/bower_components/angularfire/dist/angularfire.min.js',
       'web/app/app.js',
+      'web/app/routes.js',
       'web/app/**/**.js',
       'test/*.js'
     ],

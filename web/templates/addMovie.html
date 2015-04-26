@@ -1,0 +1,27 @@
+<div>
+    <form name="movieForm">
+        <p>
+            <label>Name</label>
+            <input name="name" ng-model="movie.name" required>
+        </p>
+        <p>
+            <label>Director</label>
+            <input name="director" ng-model="movie.director" required>
+        </p>
+        <p>
+            <label>Release year</label>
+            <input name="year" ng-model="movie.year" required>
+        </p>
+        <p>
+            <label>Shooting location</label>
+            <input name="location" ng-model="movie.location" required>
+        </p>
+        <p>
+            <label>Description</label>
+            <input name="description" ng-model="movie.description" required>
+        </p>
+        <p>
+            <button type="submit" ng-click="addMovie(movie)" ng-disabled="movieForm.$invalid">Add movie</button>
+        </p>
+    </form>
+</div>
