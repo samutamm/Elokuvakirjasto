@@ -4,7 +4,7 @@ angular.module('ElokuvaApp').config(function($routeProvider) {
                 redirectTo: '/movies'
             })
             .when('/new', {
-                templateUrl: "templates/addMovie.html",
+                templateUrl: "templates/movieForm.html",
                 controller: "AddMovieController"
             })
             .when('/movies', {
@@ -14,5 +14,8 @@ angular.module('ElokuvaApp').config(function($routeProvider) {
             .when('/movies/:id', {
                 templateUrl: "templates/showMovie.html",
                 controller: "ShowMovieController"
+            })
+            .when('/movies/:id/edit', {
+                templateUrl: ''
             })
 });

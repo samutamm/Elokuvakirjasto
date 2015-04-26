@@ -1,38 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Elokuvakirjasto</title>
-  </head>
-  <body ng-app="ElokuvaApp">
-    <h1>Elokuvakirjasto</h1>
-    
-    <elokuva-nav-bar></elokuva-nav-bar>
-    
-    <div ng-view ></div>
+<html lang="en" ng-app="ElokuvaApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <title>Elokuvakirjasto</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="fontainer-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <a href="#/">Elokuvakirjasto </a>
+                    </div>
+                </div>
 
+                <elokuva-nav-bar></elokuva-nav-bar>
+            </div>
+
+        </nav>
+        <div ng-view class="container-fluid"></div>
+    </body>
     <!-- Hyödyllisiä kirjastoja -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <!-- Bootstrap & JQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
 
     <!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
     <script src="app/app.js"></script>    
     <script src="app/routes.js"></script>  
-    
+
     <!-- Services -->
     <script src="app/services/FirebaseService.js"></script>  
-    
+
     <!-- Controllers -->
     <script src="app/controllers/AddMovieController.js"></script>  
     <script src="app/controllers/ListMoviesController.js"></script>
     <script src="app/controllers/ShowMovieController.js"></script>
-    
+
     <!-- Directives -->
     <script src="app/directives/elokuvaNavBar.js"></script>
-    
-  </body>
+
+
 </html>
