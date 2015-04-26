@@ -20,4 +20,8 @@ ElokuvaApp.service('FirebaseService', function ($firebase) {
             done(movies.$getRecord(key));
         });
     }
+    
+    this.updateMovie = function(movie) {
+        movies.$save(movie);
+    };
 });

@@ -16,6 +16,7 @@ angular.module('ElokuvaApp').config(function($routeProvider) {
                 controller: "ShowMovieController"
             })
             .when('/movies/:id/edit', {
-                templateUrl: ''
+                templateUrl: 'templates/movieForm.html',
+                controller: 'EditMovieController'
             })
 });
