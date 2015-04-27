@@ -1,0 +1,43 @@
+<button ng-click="showRegister = true" >New User</button>
+<button ng-click="showLogin = true" >Allready have account</button>
+
+<div ng-show="showRegister">
+    <h1>Register</h1>
+
+    <form name='registerForm'>
+        <p>
+            <label>Email: </label>
+            <input name='email' ng-model="newEmail" required></p>
+        <p>
+            <label>Password: </label>
+            <input name='newPassword' type='password' ng-model="newPassword"
+                   required ng-minlength="8" ng-pattern="/(?=.*[0-9]{1,})(?=.*[A-Z]{1,})/" ></p>
+        <p>
+            <label>Password Confirmation: </label>
+            <input name='passwordConfirmation' type='password' ng-model="loginCredentials.passwordConfirmation"
+                   required match='newPassword'>
+        </p>
+        <p>
+            <button type='submit' class="btn btn-success" 
+                    ng-disabled="registerForm.$invalid" ng-click="register()" >Register</button>
+        </p>
+    </form>
+</div>
+
+<div ng-show="showLogin">
+    <h1>LogIn</h1>
+
+    <form name='loginForm'>
+        <p>
+            <label>Email: </label>
+            <input name='email' ng-model="newEmail" required></p>
+        <p>
+            <label>Password: </label>
+            <input name='newPassword' type='password' ng-model="newPassword"
+                   required ng-minlength="8" ng-pattern="/(?=.*[0-9]{1,})(?=.*[A-Z]{1,})/" ></p>
+        <p>
+            <button type='submit' class="btn btn-success" 
+                    ng-disabled="loginForm.$invalid" ng-click="logIn()" >LogIn</button>
+        </p>
+    </form>
+</div>

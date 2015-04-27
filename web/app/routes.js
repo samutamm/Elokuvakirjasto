@@ -1,22 +1,46 @@
-angular.module('ElokuvaApp').config(function($routeProvider) {
+angular.module('ElokuvaApp').config(function ($routeProvider) {
     $routeProvider
             .when('/', {
                 redirectTo: '/movies'
             })
+            .when('/login', {
+                templateUrl: 'templates/loginForm.html',
+                controller: 'UserController'
+            })
             .when('/new', {
                 templateUrl: "templates/movieForm.html",
-                controller: "AddMovieController"
+                controller: "AddMovieController",
+                resolve: {
+                    currentAuth: function (AuthenticationService) {
+                        return AuthenticationService.checkLoggedIn();
+                    }
+                }
             })
             .when('/movies', {
                 templateUrl: "templates/listMovies.html",
-                controller: "ListMoviesController"
+                controller: "ListMoviesController",
+                resolve: {
+                    currentAuth: function (AuthenticationService) {
+                        return AuthenticationService.checkLoggedIn();
+                    }
+                }
             })
             .when('/movies/:id', {
                 templateUrl: "templates/showMovie.html",
-                controller: "ShowMovieController"
+                controller: "ShowMovieController",
+                resolve: {
+                    currentAuth: function (AuthenticationService) {
+                        return AuthenticationService.checkLoggedIn();
+                    }
+                }
             })
             .when('/movies/:id/edit', {
                 templateUrl: 'templates/movieForm.html',
-                controller: 'EditMovieController'
+                controller: 'EditMovieController',
+                resolve: {
+                    currentAuth: function (AuthenticationService) {
+                        return AuthenticationService.checkLoggedIn();
+                    }
+                }
             })
 });

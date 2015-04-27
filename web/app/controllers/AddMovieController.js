@@ -1,4 +1,8 @@
-angular.module('ElokuvaApp').controller('AddMovieController', function (FirebaseService, $scope, $location) {
+angular.module('ElokuvaApp').controller('AddMovieController', function (FirebaseService, currentAuth, $scope, $location) {
+    if (!currentAuth) {
+        $location.path('/login');
+    }
+
     $scope.movie = {};
     $scope.newOne = true;
 
