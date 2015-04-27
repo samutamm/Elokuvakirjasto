@@ -3,6 +3,7 @@ angular.module('ElokuvaApp').controller('EditMovieController', function (Firebas
     FirebaseService.getMovie($routeParams.id, function (movie) {
         $scope.movie = movie;
     });
+    
     $scope.newOne = false;
 
     $scope.returnToShow = function () {

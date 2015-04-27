@@ -17,6 +17,15 @@ describe('Show movie', function () {
                     "year": "2009",
                     "id": "123",
                     "priority": "asdhad"
+                },
+                {
+                    "description": "epic",
+                    "director": "en muista",
+                    "location": "New Zealand",
+                    "name": "Taru Sormusten Herrasta",
+                    "year": "2003",
+                    "id": "1233",
+                    "priority": "asdhad"
                 }];
             return {
                 getMovie: function (key, done) {
@@ -26,11 +35,8 @@ describe('Show movie', function () {
         })();
 
         RouteParamsMock = (function () {
-            return
-            {
             return {
                 id: "0"
-                }
             }
         })();
 
@@ -44,7 +50,7 @@ describe('Show movie', function () {
             controller = $controller('ShowMovieController', {
                 $scope: scope,
                 FirebaseService: FirebaseServiceMock,
-                $routePrams: RouteParamsMock
+                $routeParams: RouteParamsMock
             });
         });
     });
