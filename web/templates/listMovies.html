@@ -6,7 +6,7 @@
 <br>
 <div ng-show="searchDone">
     <li ng-repeat="movie in OMDBmovies.Search">
-        <a ng-href="http://www.imdb.com/title/{{movie.imdbID}}">{{movie.Title}}</a>
+        <a ng-href="https://www.imdb.com/title/{{movie.imdbID}}">{{movie.Title}}</a>
     </li>
     <h3> <ng-pluralize count="numberOfMovies"
                        when="{  '0': 'No movies found.',
