@@ -12,10 +12,10 @@ angular.module('ElokuvaApp').controller('ListMoviesController', function (OMDBSe
         OMDBService.findMovie(search.name, search.year).success(function (movies) {
             $scope.OMDBmovies = movies;
             if ($scope.OMDBmovies.Response === "False") {
-                $scope.moviesFound = false;
+                $scope.numberOfMovies = 0;
             } else {
-                search = {};
-                $scope.moviesFound = true;
+                $scope.search = {};
+                $scope.numberOfMovies = $scope.OMDBmovies.Search.length;
             }
             $scope.searchDone = true;
         });

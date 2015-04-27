@@ -1,24 +1,28 @@
 <form name="searchForm">
-    <p>Name <input name="name" ng-model="search.name" ng-pattern="/^[A-Za-z0-9]{1,}$/"></p>
-    <p>Year <input name="year" ng-model="search.year" ng-pattern="/^[1-2]{1}[8-0]{1}[0-9]{2}$/"></p>
-    <button ng-click="searchMovies(search)" >Search</button>
+    <p>Name <input name="name" ng-model="search.name" required ng-pattern="/^[A-Za-z0-9\s]{1,}$/"></p>
+    <p>Year <input name="year" ng-model="search.year" ng-pattern="/^[1-2]{1}[8,9,0]{1}[0-9]{2}$/"></p>
+    <button class="btn btn-xs" ng-disabled="searchForm.$invalid" ng-click="searchMovies(search)" >Search</button>
 </form>
 <br>
-<div ng-show="searchDone && moviesFound">
+<div ng-show="searchDone">
     <li ng-repeat="movie in OMDBmovies.Search">
         <a ng-href="http://www.imdb.com/title/{{movie.imdbID}}">{{movie.Title}}</a>
     </li>
+    <h3> <ng-pluralize count="numberOfMovies"
+                       when="{  '0': 'No movies found.',
+                                '1': 'One movie found.',
+                                'other': '{{numberOfMovies}} movies found.'}" >
+
+        </ng-pluralize></h3>
 </div>
-<div ng-show="searchDone && !moviesFound">
-    <p>No movies found!</p>
-</div>
+
 <br>
 <br>
 <p>Own movies</p>
 
 <ul>
-  <li ng-repeat="movie in movies">
-    <a ng-href="#/movies/{{movie.$id}}">{{movie.name}}</a>
-    <button ng-click="remove($index)" class="btn btn-danger btn-xs" >Remove</button>
-  </li>
+    <li ng-repeat="movie in movies">
+        <a ng-href="#/movies/{{movie.$id}}">{{movie.name}}</a>
+        <button ng-click="remove($index)" class="btn btn-danger btn-xs" >Remove</button>
+    </li>
 </ul>
