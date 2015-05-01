@@ -1,4 +1,4 @@
-ElokuvaApp.service('AuthenticationService', function ($firebase, $firebaseAuth) {
+ElokuvaApp.service('AuthenticationService', function ($firebase, $firebaseAuth, $location) {
     var firebaseRef = new Firebase('https://elokuvakirjasto-samu.firebaseio.com');
     var firebaseAuth = $firebaseAuth(firebaseRef);
 

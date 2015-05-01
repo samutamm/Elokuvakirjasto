@@ -1,5 +1,5 @@
-<button ng-click="showRegister = true" >New User</button>
-<button ng-click="showLogin = true" >Allready have account</button>
+<button ng-click="toggleForm(showRegister)" >New User</button>
+<button ng-click="toggleForm(showLogin)" >Allready have account</button>
 
 <div ng-show="showRegister">
     <h1>Register</h1>
@@ -30,10 +30,10 @@
     <form name='loginForm'>
         <p>
             <label>Email: </label>
-            <input name='email' ng-model="newEmail" required></p>
+            <input name='email' ng-model="email" required></p>
         <p>
             <label>Password: </label>
-            <input name='newPassword' type='password' ng-model="newPassword"
+            <input name='password' type='password' ng-model="password"
                    required ng-minlength="8" ng-pattern="/(?=.*[0-9]{1,})(?=.*[A-Z]{1,})/" ></p>
         <p>
             <button type='submit' class="btn btn-success" 
@@ -41,3 +41,5 @@
         </p>
     </form>
 </div>
+
+<h3>{{message}}</h3>

@@ -1,5 +1,6 @@
 <ul class="nav navbar-nav">
   <li ng-class="{'active' : isPage('new')}"> <a href="#/new">New Movie</a> </li>
   <li ng-class="{'active' : isPage('movies')}"> <a href="#/movies">Movies</a> </li>
-  <li ng-click="logOut()"><a href="#">Log out</a></li>
+  <li ng-show="isLoggedIn()" ng-click="goToLogOut()"><a href="#">Log out</a></li>
+  <li ng-show="!isLoggedIn()" ng-click="goToLogIn()"><a href="#">Log in</a></li>
 </ul>

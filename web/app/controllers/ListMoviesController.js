@@ -1,4 +1,8 @@
-angular.module('ElokuvaApp').controller('ListMoviesController', function (OMDBService, WindowDialogService, FirebaseService, $scope, $location) {
+angular.module('ElokuvaApp').controller('ListMoviesController', function (OMDBService, WindowDialogService, FirebaseService, $scope, $location, currentAuth) {
+    $scope.showRemoveButton = function() {
+        return currentAuth != undefined;
+    }
+    
     $scope.movies = FirebaseService.getMovies();
 
     $scope.remove = function (index) {

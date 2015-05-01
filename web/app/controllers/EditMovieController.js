@@ -1,4 +1,7 @@
-angular.module('ElokuvaApp').controller('EditMovieController', function (FirebaseService, $routeParams, $scope, $location) {
+angular.module('ElokuvaApp').controller('EditMovieController', function (FirebaseService, currentAuth, $routeParams, $scope, $location) {
+    if (!currentAuth) {
+        $location.path('/login');
+    }
     
     FirebaseService.getMovie($routeParams.id, function (movie) {
         $scope.movie = movie;

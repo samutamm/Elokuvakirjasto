@@ -1,5 +1,7 @@
 angular.module('ElokuvaApp').controller('UserController', function ($scope, $location, AuthenticationService) {
-
+    $scope.showRegister = false;
+    $scope.showLogin = false;
+    
     $scope.logIn = function () {
         AuthenticationService.logUserIn($scope.email, $scope.password)
                 .then(function () {
@@ -21,5 +23,16 @@ angular.module('ElokuvaApp').controller('UserController', function ($scope, $loc
                 .catch(function () {
                     $scope.message = 'Tapahtui virhe! Yritä uudestaan';
                 });
+    }
+    
+    $scope.toggleForm = function(scopeVariable) {
+        if (scopeVariable == $scope.showLogin) {
+            $scope.showLogin = true;
+            $scope.showRegister = false;
+        } else {
+            $scope.showLogin = false;
+            $scope.showRegister = true;
+        }
+        $scope.message = "";
     }
 });
