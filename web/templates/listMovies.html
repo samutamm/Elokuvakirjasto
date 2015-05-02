@@ -1,28 +1,52 @@
+<h1>Search movies</h1>
+
 <form name="searchForm">
     <p>Name <input name="name" ng-model="search.name" required ng-pattern="/^[A-Za-z0-9\s]{1,}$/"></p>
     <p>Year <input name="year" ng-model="search.year" ng-pattern="/^[1-2]{1}[8,9,0]{1}[0-9]{2}$/"></p>
-    <button class="btn btn-xs" ng-disabled="searchForm.$invalid" ng-click="searchMovies(search)" >Search</button>
+    <button class="btn btn-xs btn-primary" ng-disabled="searchForm.$invalid" ng-click="searchMovies(search)" >Search</button>
 </form>
 <br>
 <div ng-show="searchDone">
-    <li ng-repeat="movie in OMDBmovies.Search">
-        <a ng-href="http://www.imdb.com/title/{{movie.imdbID}}">{{movie.Title}}</a>
-    </li>
     <h3> <ng-pluralize count="numberOfMovies"
                        when="{  '0': 'No movies found.',
-                                '1': 'One movie found.',
-                                'other': '{{numberOfMovies}} movies found.'}" >
+                       '1': 'One movie found.',
+                       'other': '{{numberOfMovies}} movies found.'}" >
 
         </ng-pluralize></h3>
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Year</th> 
+        </tr>
+        <tr ng-repeat="movie in OMDBmovies.Search">
+            <td>
+                <a ng-href="http://www.imdb.com/title/{{movie.imdbID}}">{{movie.Title}}</a>
+            </td>
+            <td>{{movie.Year}}</td>
+        </tr>
+
+    </table>
 </div>
 
 <br>
 <br>
-<p>Own movies</p>
+<h1>Own movies</h1>
 
-<ul>
-    <li ng-repeat="movie in movies">
-        <a ng-href="#/movies/{{movie.$id}}">{{movie.name}}</a>
-        <button ng-show="showRemoveButton()" ng-click="remove($index)" class="btn btn-danger btn-xs" >Remove</button>
-    </li>
-</ul>
+<table class="table table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Director</th>
+        <th>Year</th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="movie in movies">
+        <td>
+            <a ng-href="#/movies/{{movie.$id}}">{{movie.name}}</a>
+        </td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.year}}</td>
+        <td><button ng-show="showRemoveButton()" ng-click="remove($index)" class="btn btn-danger btn-xs" >Remove</button></td>
+    </tr>
+
+</table>
+    

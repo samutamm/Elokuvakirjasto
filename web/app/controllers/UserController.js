@@ -26,7 +26,7 @@ angular.module('ElokuvaApp').controller('UserController', function ($scope, $loc
     }
     
     $scope.toggleForm = function(scopeVariable) {
-        if (scopeVariable == $scope.showLogin) {
+        if (scopeVariable == 'showLogin') {
             $scope.showLogin = true;
             $scope.showRegister = false;
         } else {

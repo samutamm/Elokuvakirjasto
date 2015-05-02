@@ -9,13 +9,16 @@ angular.module("ElokuvaApp").directive('elokuvaNavBar', function () {
                 return new RegExp("/" + name + "($|/)").test($location.path());
             };
 
-            $scope.isLoggedIn = function () {
-                debugger;
-                return AuthenticationService.checkLoggedIn() != undefined;
+            $scope.notLoggedIn = function () {
+                //debugger;
+                //console.log(AuthenticationService.checkLoggedIn().$$state.status);
+                return AuthenticationService.checkLoggedIn().$$state.value == null;
             }
 
             $scope.goToLogIn = function () {
-                $location.path('/login');
+                $timeout(function () {
+                    $location.path('/login');
+                }, 0);
             }
 
             $scope.goToLogOut = function () {

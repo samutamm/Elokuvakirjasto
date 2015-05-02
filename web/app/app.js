@@ -1,4 +1,4 @@
-var ElokuvaApp = angular.module('ElokuvaApp', ['firebase', 'ngRoute', 'validation.match']);
+var ElokuvaApp = angular.module('ElokuvaApp', ['firebase', 'ngRoute', 'validation.match', 'cgNotify']);
 
 ElokuvaApp.config(['$httpProvider', function ($httpProvider) {
         delete $httpProvider.defaults.headers.common["X-Requested-With"]

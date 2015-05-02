@@ -1,4 +1,4 @@
-angular.module('ElokuvaApp').controller('ListMoviesController', function (OMDBService, WindowDialogService, FirebaseService, $scope, $location, currentAuth) {
+angular.module('ElokuvaApp').controller('ListMoviesController', function (notify, OMDBService, WindowDialogService, FirebaseService, $scope, $location, currentAuth) {
     $scope.showRemoveButton = function() {
         return currentAuth != undefined;
     }
@@ -9,6 +9,7 @@ angular.module('ElokuvaApp').controller('ListMoviesController', function (OMDBSe
         if (WindowDialogService.confirm("Are you sure?")) {
             FirebaseService.removeMovie(index);
             $location.path('/movies');
+            notify('Movie removed!!');
         }
     }
 
